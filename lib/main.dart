@@ -1,72 +1,57 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import './question.dart';
+import './answer.dart';
 
-class MyApp extends StatelessWidget {
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'LPFP'),
-    );
+  State<StatefulWidget> createState() {
+    return _MyAppState();
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+class _MyAppState extends State<MyApp> {
+  var _questionsIndex = 0;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
+  void _answerQuestions() {
     setState(() {
-      _counter++;
+      _questionsIndex = _questionsIndex + 1;
     });
+
+    print(_questionsIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    var questions = [
+      'what\'s your favourite color?',
+      'what\'s your favourite animal'
+    ];
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Teste'),
+        ),
+        body: Column(
+          children: [
+            Question(
+              questions[_questionsIndex],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Answer(
+              _answerQuestions,
+            ),
+            Answer(
+              _answerQuestions,
+            ),
+            Answer(
+              _answerQuestions,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      bottomNavigationBar: BottomAppBar(
-          color: Colors.grey,
-          child: Container(
-            height: 50,
-          )),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 }
