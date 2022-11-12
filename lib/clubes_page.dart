@@ -30,15 +30,15 @@ Widget _buildPopupDialog(BuildContext context) {
 }
 
 EquipaClube clubes = EquipaClube(
-    name: 'porto',
-    namejogador: 'paulo',
-    idade: 1,
-    peso: 1.1,
-    altura: 1.11,
-    diacontratacao: 1,
-    mescontratacao: 1,
-    anocontratacao: 1,
-  );
+  name: 'porto',
+  namejogador: 'paulo',
+  idade: 1,
+  peso: 1.1,
+  altura: 1.11,
+  diacontratacao: 1,
+  mescontratacao: 1,
+  anocontratacao: 1,
+);
 Widget _clubePopupPage(BuildContext context) {
   return AlertDialog(
     title: const Text('Clubes'),
@@ -47,7 +47,6 @@ Widget _clubePopupPage(BuildContext context) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const <Widget>[
         //encontrar maneira de fazer um pop up com o tostring da class equipa
-        clubes.toString();
       ],
     ),
     actions: <Widget>[
@@ -103,8 +102,7 @@ class _ClubesPageState extends State<ClubesPage> {
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (BuildContext context) =>
-                        _clubePopupPage(context),
+                    builder: (BuildContext context) => _clubePopupPage(context),
                   );
                 },
                 child: const Text('data'))
