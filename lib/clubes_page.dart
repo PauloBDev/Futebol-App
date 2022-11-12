@@ -8,8 +8,6 @@ class ClubesPage extends StatefulWidget {
   State<ClubesPage> createState() => _ClubesPageState();
 }
 
-//comentario
-
 Widget _buildPopupDialog(BuildContext context) {
   return AlertDialog(
     title: const Text('Clubes'),
