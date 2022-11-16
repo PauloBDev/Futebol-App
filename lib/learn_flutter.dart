@@ -16,7 +16,7 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Learn Flutter',
+          'Learn Flutter Now',
         ),
         automaticallyImplyLeading: false,
         leading: IconButton(
