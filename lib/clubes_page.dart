@@ -29,16 +29,6 @@ Widget _buildPopupDialog(BuildContext context) {
   );
 }
 
-EquipaClube clubes = EquipaClube(
-  name: 'porto',
-  namejogador: 'paulo',
-  idade: 1,
-  peso: 1.1,
-  altura: 1.11,
-  diacontratacao: 1,
-  mescontratacao: 1,
-  anocontratacao: 1,
-);
 Widget _clubePopupPage(BuildContext context) {
   return AlertDialog(
     title: const Text('Clubes'),

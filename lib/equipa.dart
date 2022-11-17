@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trabalho2/clubes.dart';
 
-class EquipaClube extends Clubes {
+class Jogador extends Clubes {
   String? namejogador;
   String? escolaridade;
   int? idade;
@@ -11,7 +11,7 @@ class EquipaClube extends Clubes {
   int? mescontratacao;
   int? anocontratacao;
 
-  EquipaClube({
+  Jogador({
     name,
     this.namejogador,
     this.escolaridade,
