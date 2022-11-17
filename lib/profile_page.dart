@@ -11,6 +11,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final double backgroundHeight = 280;
   final double profileHeight = 144;
+  final double imageprofileRadius = 77;
 
   @override
   Widget build(BuildContext context) {
@@ -31,22 +32,33 @@ Widget buildbackgroundProfile() => Container(
       child: Image.asset(
         'images/einstein.jpg',
         width: double.infinity,
-        height: 280,
+        height: _ProfilePageState().backgroundHeight,
         fit: BoxFit.cover,
       ),
     );
 
 Widget buildImageProfile() => CircleAvatar(
-      radius: 77,
+      radius: _ProfilePageState().imageprofileRadius,
       backgroundColor: Colors.grey.shade800,
-      child: Image.asset(
-        'images/lpfp_logo.png',
-      ),
+      child: SizedBox(
+          width: _ProfilePageState().imageprofileRadius * 4,
+          height: _ProfilePageState().imageprofileRadius * 4,
+          child: ClipOval(
+            child: Image.asset(
+              "images/einstein.jpg",
+              fit: BoxFit.cover,
+            ),
+          )),
+    );
+
+Widget buildwhiteBackground() => CircleAvatar(
+      radius: _ProfilePageState().imageprofileRadius + 10,
+      backgroundColor: Colors.white,
     );
 
 Widget buildTop() {
   final top = _ProfilePageState().backgroundHeight -
-      (_ProfilePageState().profileHeight / 2);
+      (_ProfilePageState().imageprofileRadius);
   final bottom = _ProfilePageState().profileHeight / 2;
 
   return Stack(
@@ -56,6 +68,10 @@ Widget buildTop() {
       Container(
         margin: EdgeInsets.only(bottom: bottom),
         child: buildbackgroundProfile(),
+      ),
+      Positioned(
+        top: top - 10,
+        child: buildwhiteBackground(),
       ),
       Positioned(
         top: top,
@@ -81,7 +97,7 @@ Widget buildContent() => Column(
           height: 8,
         ),
         const Text(
-          'Profession!',
+          'Clube!',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.normal,
