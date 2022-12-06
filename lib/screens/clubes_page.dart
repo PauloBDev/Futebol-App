@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trabalho2/data/equipa.dart';
+import 'package:trabalho2/data/jogadores.dart';
+import 'package:trabalho2/screens/jogadores_page.dart';
+import 'jogadores_page.dart';
 
 class ClubesPage extends StatefulWidget {
   const ClubesPage({super.key});
@@ -95,7 +97,21 @@ class _ClubesPageState extends State<ClubesPage> {
                     builder: (BuildContext context) => _clubePopupPage(context),
                   );
                 },
-                child: const Text('data'))
+                child: const Text('data')),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const JogadoresPage();
+                    },
+                  ),
+                );
+              },
+              child: const Text(
+                'Jogadores',
+              ),
+            ),
           ],
         ),
       ),
