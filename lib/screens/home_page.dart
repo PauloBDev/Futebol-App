@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:intl/intl.dart';
 
 import 'package:flutter/material.dart';
-import 'package:trabalho2/data/learn_flutter.dart';
-import 'package:trabalho2/data/clubes_page.dart';
+import 'package:trabalho2/screens/learn_flutter_page.dart';
+import 'package:trabalho2/screens/clubes_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

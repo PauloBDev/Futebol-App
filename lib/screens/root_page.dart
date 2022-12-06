@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trabalho2/home_page/profile_page.dart';
+import 'package:trabalho2/screens/profile_page.dart';
 
-import '../home_page/home_page.dart';
+import 'home_page.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({super.key});
