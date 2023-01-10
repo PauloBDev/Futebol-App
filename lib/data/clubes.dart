@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Clubes {
-  final String nameClube;
+  final String nameClubes;
 
-  Clubes({required this.nameClube});
+  Clubes({required this.nameClubes});
 }
