@@ -26,22 +26,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                SizedBox(
-                  width: double.infinity,
+      body: Column(
+        children: <Widget>[
+          Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Center(
+                child: SizedBox(
+                  width: widthScreen - (widthScreen / 2),
                   height: 90,
                   child: Image.asset(
                     'images/football_clock_image.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),
-                Text(
+              ),
+              Center(
+                child: Text(
                   formattedTime,
                   style: const TextStyle(
                     color: Colors.white,
@@ -49,44 +52,41 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 60,
                   ),
                 ),
-                const Positioned(
-                  top: 70,
-                  child: Text(
-                    'Before the next game!',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15),
-                  ),
+              ),
+              const Text(
+                'Before the next game!',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15),
+              ),
+            ],
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const LearnFlutterPage();
+                  },
                 ),
-              ],
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const LearnFlutterPage();
-                    },
-                  ),
-                );
-              },
-              child: const Text('Learn'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const ClubesPage();
-                    },
-                  ),
-                );
-              },
-              child: const Text('Clubes'),
-            ),
-          ],
-        ),
+              );
+            },
+            child: const Text('Learn'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const ClubesPage();
+                  },
+                ),
+              );
+            },
+            child: const Text('Clubes'),
+          ),
+        ],
       ),
     );
   }
