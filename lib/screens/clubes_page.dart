@@ -24,6 +24,7 @@ class _ClubesPageState extends State<ClubesPage> {
       ),
       body: ListView(
         children: clubes.map((e) {
+          final String nameClube = e.nameClube;
           return Card(
             child: Row(
               children: [
@@ -32,10 +33,11 @@ class _ClubesPageState extends State<ClubesPage> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.of(context).push(
+                        Navigator.push(
+                          context,
                           MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return const JogadoresPage();
+                            builder: (context) {
+                              return JogadoresPage(nameClube);
                             },
                           ),
                         );
