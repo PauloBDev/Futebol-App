@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:trabalho2/screens/competition_page.dart';
 import 'package:trabalho2/screens/learn_flutter_page.dart';
 import 'package:trabalho2/screens/clubes_page.dart';
 
@@ -49,25 +50,47 @@ class _HomePageState extends State<HomePage> {
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 60,
+                    fontSize: 40,
                   ),
                 ),
               ),
-              const Text(
-                'Before the next game!',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
+              const Center(
+                child: SizedBox(
+                  height: 70,
+                  child: Text(
+                    'Before the next game!',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                ),
               ),
             ],
+          ),
+          CarouselSlider(
+            options: CarouselOptions(height: 300.0),
+            items: [1, 2, 3, 4, 5].map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      decoration: BoxDecoration(color: Colors.amber),
+                      child: Text(
+                        'text $i',
+                        style: TextStyle(fontSize: 16.0),
+                      ));
+                },
+              );
+            }).toList(),
           ),
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return const LearnFlutterPage();
+                    return const CompetitionPage();
                   },
                 ),
               );
