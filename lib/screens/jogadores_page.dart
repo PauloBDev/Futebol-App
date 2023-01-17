@@ -27,29 +27,39 @@ class _JogadoresPageState extends State<JogadoresPage> {
           'Equipa',
         ),
       ),
-      body: ListView(
-        children: jogadoresDeClube.map((e) {
-          return Card(
-            child: Row(
-              children: [
-                Image.asset(
-                  'images/profile_pic.png',
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  margin: const EdgeInsets.all(5),
-                  child: Text(
-                    '''Nome: ${e.namejogador}
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'images/campo.png',
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: ListView(
+          children: jogadoresDeClube.map((e) {
+            return Card(
+              child: Row(
+                children: [
+                  Image.asset(
+                    'images/profile_pic.png',
+                    width: 100,
+                    height: 100,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(5),
+                    child: Text(
+                      '''Nome: ${e.namejogador}
 Idade: ${e.idade}
 Clube: ${e.nameClube}
 Contratação: ${e.date}''',
+                    ),
                   ),
-                ),
-              ],
-            ),
-          );
-        }).toList(),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }

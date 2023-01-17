@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Games {
+class Jogos {
   final DateTime gameStarts;
   final String homeTeam;
   final String outsiderTeam;
 
-  Games({
+  Jogos({
     required this.gameStarts,
     required this.homeTeam,
     required this.outsiderTeam,

@@ -24,51 +24,60 @@ class _CompetitionPageState extends State<CompetitionPage> {
           'Ligas',
         ),
       ),
-      body: ListView(
-        children: competitions.map((e) {
-          final String nameCompetition = e.nameCompetition;
-          return Card(
-            child: Row(
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return Clubes_Competition_Page(nameCompetition);
-                            },
-                          ),
-                        );
-                      },
-                      child: Ink.image(
-                        image: const AssetImage(
-                          'images/profile_pic.png',
-                        ),
-                        width: imageSize,
-                        height: imageSize,
-                      ),
-                    ),
-                    SizedBox(
-                      width:
-                          (MediaQuery.of(context).size.width - imageSize) / 2,
-                    ),
-                    Text(
-                      e.nameCompetition,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    )
-                  ],
-                )
-              ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'images/campo.png',
             ),
-          );
-        }).toList(),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: ListView(
+          children: competitions.map((e) {
+            final String nameCompetition = e.nameCompetition;
+            return Card(
+              child: Row(
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Clubes_Competition_Page(nameCompetition);
+                              },
+                            ),
+                          );
+                        },
+                        child: Ink.image(
+                          image: const AssetImage(
+                            'images/profile_pic.png',
+                          ),
+                          width: imageSize,
+                          height: imageSize,
+                        ),
+                      ),
+                      SizedBox(
+                        width: imageSize / 2,
+                      ),
+                      Text(
+                        e.nameCompetition,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 20,
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }

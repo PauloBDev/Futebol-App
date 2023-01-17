@@ -1,18 +1,19 @@
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:trabalho2/data/jogadores.dart';
-import 'package:trabalho2/populating/clubes.dart';
-import 'package:trabalho2/populating/jogadores.dart';
-import 'package:trabalho2/screens/jogadores_page.dart';
+import '../populating/clubes.dart';
+import 'clubes_competitions_page.dart';
+import 'clubes_page.dart';
 import 'jogadores_page.dart';
 
-class ClubesPage extends StatefulWidget {
-  const ClubesPage({super.key});
+class JogosPage extends StatefulWidget {
+  const JogosPage({super.key});
 
   @override
-  State<ClubesPage> createState() => _ClubesPageState();
+  State<JogosPage> createState() => _JogosPageState();
 }
 
-class _ClubesPageState extends State<ClubesPage> {
+class _JogosPageState extends State<JogosPage> {
   final double imageSize = 100;
 
   @override
