@@ -1,32 +1,36 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:trabalho2/populating/competitions.dart';
-import 'package:trabalho2/screens/clubes_competitions_page.dart';
-import 'package:trabalho2/screens/clubes_page.dart';
-
+import 'package:flutter/material.dart';
 import '../populating/clubes.dart';
+import 'clubes_page.dart';
+import 'jogadores_page.dart';
 
-class CompetitionPage extends StatefulWidget {
-  const CompetitionPage({super.key});
+class Clubes_Competition_Page extends StatefulWidget {
+  final String nameCompetitionC;
+  const Clubes_Competition_Page(this.nameCompetitionC, {super.key});
 
   @override
-  State<CompetitionPage> createState() => _CompetitionPageState();
+  State<Clubes_Competition_Page> createState() =>
+      _Clubes_Competition_PageState();
 }
 
-class _CompetitionPageState extends State<CompetitionPage> {
+class _Clubes_Competition_PageState extends State<Clubes_Competition_Page> {
+  final clubesDeCompetition = [];
   final double imageSize = 100;
   @override
   Widget build(BuildContext context) {
+    clubes
+        .where((e) => e.nameCompetitionC == widget.nameCompetitionC)
+        .forEach((j) => clubesDeCompetition.add(j));
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Ligas',
+        title: Text(
+          'Clubes da ${widget.nameCompetitionC}',
         ),
       ),
       body: ListView(
-        children: competitions.map((e) {
-          final String nameCompetition = e.nameCompetition;
+        children: clubesDeCompetition.map((e) {
+          final String nameCompetitionC = e.nameCompetitionC;
           return Card(
             child: Row(
               children: [
@@ -39,7 +43,8 @@ class _CompetitionPageState extends State<CompetitionPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return Clubes_Competition_Page(nameCompetition);
+                              final String nameClube = e.nameClube;
+                              return JogadoresPage(nameClube);
                             },
                           ),
                         );
@@ -57,10 +62,10 @@ class _CompetitionPageState extends State<CompetitionPage> {
                           (MediaQuery.of(context).size.width - imageSize) / 2,
                     ),
                     Text(
-                      e.nameCompetition,
+                      e.nameClube,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 32,
                       ),
                     )
                   ],

@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             },
-            child: const Text('Learn'),
+            child: const Text('Competitions'),
           ),
           ElevatedButton(
             onPressed: () {

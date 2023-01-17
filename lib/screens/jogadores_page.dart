@@ -15,6 +15,7 @@ class JogadoresPage extends StatefulWidget {
 
 class _JogadoresPageState extends State<JogadoresPage> {
   List jogadoresDeClube = [];
+  List jogadoresDeCompetition = [];
   @override
   Widget build(BuildContext context) {
     jogadores

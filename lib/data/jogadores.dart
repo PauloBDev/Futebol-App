@@ -4,6 +4,7 @@ import 'package:trabalho2/data/clubes.dart';
 class Jogador extends Clubes {
   final String namejogador;
   final String? escolaridade;
+  final String? nameCompetition;
   final int idade;
   final double? peso;
   final double? altura;
@@ -14,6 +15,7 @@ class Jogador extends Clubes {
     nameClube,
     required this.namejogador,
     this.escolaridade,
+    this.nameCompetition,
     required this.idade,
     this.peso,
     this.altura,

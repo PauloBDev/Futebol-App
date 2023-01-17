@@ -14,12 +14,13 @@ class ClubesPage extends StatefulWidget {
 
 class _ClubesPageState extends State<ClubesPage> {
   final double imageSize = 100;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Clubes da Liga #',
+          'Clubes',
         ),
       ),
       body: ListView(
