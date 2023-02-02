@@ -1,6 +1,8 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:trabalho2/populating/jogos.dart';
 import '../populating/clubes.dart';
 import 'clubes_competitions_page.dart';
 import 'clubes_page.dart';
@@ -18,6 +20,7 @@ class _JogosPageState extends State<JogosPage> {
 
   @override
   Widget build(BuildContext context) {
+    double screen = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -34,48 +37,58 @@ class _JogosPageState extends State<JogosPage> {
           ),
         ),
         child: ListView(
-          children: clubes.map((e) {
-            final String nameClube = e.nameClube;
-            return Card(
-              child: Row(
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
+          children: jogos.map((e) {
+            final data = DateFormat.MMMEd().format(e.gameStarts);
+            return SizedBox(
+                width: 100,
+                height: 100,
+                child: Card(
+                  child: Row(
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return JogadoresPage(nameClube);
-                              },
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            data,
+                            style: const TextStyle(
+                              fontSize: 32,
                             ),
-                          );
-                        },
-                        child: Ink.image(
-                          image: const AssetImage(
-                            'images/profile_pic.png',
                           ),
-                          width: imageSize,
-                          height: imageSize,
-                        ),
-                      ),
-                      SizedBox(
-                        width: imageSize / 2,
-                      ),
-                      Text(
-                        e.nameClube,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 32,
-                        ),
+                          const SizedBox(
+                            width: 150,
+                          ),
+                          Text(
+                            e.homeTeam,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 32,
+                            ),
+                          ),
+                          SizedBox(
+                            width: screen / 4,
+                          ),
+                          const Text(
+                            "VS",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 32,
+                            ),
+                          ),
+                          SizedBox(
+                            width: screen / 4,
+                          ),
+                          Text(
+                            e.outsiderTeam,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 32,
+                            ),
+                          ),
+                        ],
                       )
                     ],
-                  )
-                ],
-              ),
-            );
+                  ),
+                ));
           }).toList(),
         ),
       ),
