@@ -192,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 fontSize: 60,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Colors.black),
                           ),
                         ),
                       ),
@@ -233,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 fontSize: 60,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Colors.black),
                           ),
                         ),
                       ),
@@ -278,7 +278,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 fontSize: 50,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Colors.black),
                           ),
                         ),
                       ),
@@ -314,12 +314,12 @@ class _HomePageState extends State<HomePage> {
                               ),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Jogos',
                             style: TextStyle(
                                 fontSize: 60,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.red[700]),
+                                color: Colors.white),
                           ),
                         ),
                       ),
