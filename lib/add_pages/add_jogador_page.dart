@@ -23,6 +23,16 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
     "Passport",
     "Data de contratação (dd-MM-yyyy)"
   ];
+  String? get _errorText {
+    var lista = [];
+    lista.addAll(_controllers);
+    // at any time, we can get the text from _controller.value.text
+    if (lista.isEmpty) {
+      return 'Can\'t be empty';
+    }
+    if (lista[0]) {}
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
