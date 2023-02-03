@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho2/data/competition.dart';
 
 class CompetitionAdd_Page extends StatefulWidget {
   const CompetitionAdd_Page({super.key});
@@ -47,7 +48,11 @@ class _CompetitionAdd_PageState extends State<CompetitionAdd_Page> {
               ),
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  Competition(nameCompetition: _textController.text);
+                });
+              },
               color: Colors.lightGreen[900],
               child: const Text(
                 "Adicionar",

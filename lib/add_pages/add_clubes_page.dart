@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho2/data/clubes.dart';
 
 class ClubesAdd_Page extends StatefulWidget {
   const ClubesAdd_Page({super.key});
@@ -8,7 +9,8 @@ class ClubesAdd_Page extends StatefulWidget {
 }
 
 class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
-  final _textController = TextEditingController();
+  final List<TextEditingController> _controllers =
+      List.generate(2, (i) => TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: TextField(
-                    controller: _textController,
+                    controller: _controllers[0],
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -38,7 +40,7 @@ class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
                       border: const OutlineInputBorder(),
                       suffix: IconButton(
                           onPressed: () {
-                            _textController.clear();
+                            _controllers[0].clear();
                           },
                           icon: const Icon(Icons.clear)),
                     ),
@@ -47,7 +49,7 @@ class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: TextField(
-                    controller: _textController,
+                    controller: _controllers[1],
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -55,14 +57,20 @@ class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
                       border: const OutlineInputBorder(),
                       suffix: IconButton(
                           onPressed: () {
-                            _textController.clear();
+                            _controllers[1].clear();
                           },
                           icon: const Icon(Icons.clear)),
                     ),
                   ),
                 ),
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      Clubes(
+                          nameClube: _controllers[0].text,
+                          nameCompetitionC: _controllers[1].text);
+                    });
+                  },
                   color: Colors.lightGreen[900],
                   child: const Text(
                     "Adicionar",
