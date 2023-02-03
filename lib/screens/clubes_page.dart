@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho2/add_pages/add_clubes_page.dart';
 import 'package:trabalho2/add_pages/add_jogador_page.dart';
 import 'package:trabalho2/populating/clubes.dart';
 import 'package:trabalho2/screens/jogadores_page.dart';
@@ -86,7 +87,7 @@ class _ClubesPageState extends State<ClubesPage> {
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(
             builder: (context) {
-              return const JogadoresAdd_Page();
+              return const ClubesAdd_Page();
             },
           ));
         },

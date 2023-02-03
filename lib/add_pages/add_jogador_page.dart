@@ -10,7 +10,6 @@ class JogadoresAdd_Page extends StatefulWidget {
 }
 
 class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
-  final _textController = TextEditingController();
   final List<TextEditingController> _controllers =
       List.generate(9, (i) => TextEditingController());
   var listaTexto = [
@@ -54,7 +53,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
-                        _textController.clear();
+                        _controllers[0].clear();
                       },
                       icon: const Icon(Icons.clear)),
                 ),
@@ -71,7 +70,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
-                        _textController.clear();
+                        _controllers[1].clear();
                       },
                       icon: const Icon(Icons.clear)),
                 ),
@@ -91,7 +90,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
-                        _textController.clear();
+                        _controllers[2].clear();
                       },
                       icon: const Icon(Icons.clear)),
                 ),
@@ -111,7 +110,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
-                        _textController.clear();
+                        _controllers[3].clear();
                       },
                       icon: const Icon(Icons.clear)),
                 ),
@@ -131,61 +130,10 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                       border: const OutlineInputBorder(),
                       suffix: IconButton(
                           onPressed: () {
-                            _textController.clear();
+                            _controllers[4].clear();
                           },
                           icon: const Icon(Icons.clear)),
                     ))),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
-                controller: _textController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: "Peso",
-                  border: const OutlineInputBorder(),
-                  suffix: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
-                controller: _textController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: "Altura",
-                  border: const OutlineInputBorder(),
-                  suffix: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
-                controller: _textController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: "Passport",
-                  border: const OutlineInputBorder(),
-                  suffix: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear)),
-                ),
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
@@ -197,7 +145,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
-                        _textController.clear();
+                        _controllers[5].clear();
                       },
                       icon: const Icon(Icons.clear)),
                 ),
@@ -214,7 +162,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
-                        _textController.clear();
+                        _controllers[6].clear();
                       },
                       icon: const Icon(Icons.clear)),
                 ),
@@ -231,7 +179,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
-                        _textController.clear();
+                        _controllers[7].clear();
                       },
                       icon: const Icon(Icons.clear)),
                 ),
@@ -248,7 +196,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
-                        _textController.clear();
+                        _controllers[8].clear();
                       },
                       icon: const Icon(Icons.clear)),
                 ),
@@ -279,7 +227,10 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                   fontSize: 30,
                 ),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),
