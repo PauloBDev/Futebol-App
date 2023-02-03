@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:trabalho2/screens/competition_page.dart';
 import 'package:trabalho2/screens/jogos_page.dart';
 import 'package:trabalho2/screens/clubes_page.dart';
-
 import '../populating/corouselSlider.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,33 +17,37 @@ class HomePage extends StatefulWidget {
 final List<Widget> imageSliders = carouselSlider
     .map(
       (e) => Container(
-        child: Container(
-          margin: const EdgeInsets.all(5.0),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(5.0),
-            ),
-            child: Stack(
-              children: <Widget>[
-                Image.network(
-                  e.imagem,
+        child: Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.all(5.0),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(5.0),
                 ),
-                Positioned(
-                  bottom: 50.0,
-                  left: 0.0,
-                  right: 0.0,
-                  child: Text(
-                    e.titulo,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
+                child: Stack(
+                  children: <Widget>[
+                    Image.network(
+                      e.imagem,
                     ),
-                  ),
+                    Positioned(
+                      bottom: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      child: Text(
+                        e.titulo,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     )
@@ -64,15 +67,22 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final int tempindex = 0;
+    final screen = MediaQuery.of(context).size.width;
+    const double imagesize = 100;
     double widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'Liga Portuguesa',
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                'images/campo.png',
+                '2',
               ),
               fit: BoxFit.cover,
             ),
@@ -121,77 +131,84 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               CarouselSlider(
-                  options: CarouselOptions(
-                    height: 400,
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 0.8,
-                    initialPage: 0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    autoPlay: false,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enlargeCenterPage: true,
-                    enlargeFactor: 0.3,
-                    scrollDirection: Axis.horizontal,
-                  ),
-                  items: imageSliders
-                  // carouselSlider.map((i) {
-                  //   return Builder(
-                  //     builder: (BuildContext context) {
-                  //       return Container(
-                  //         width: MediaQuery.of(context).size.width,
-                  //         margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                  //         child: Text(
-                  //           '$i',
-                  //           style: const TextStyle(
-                  //             fontSize: 22.0,
-                  //             color: Colors.white,
-                  //           ),
-                  //         ),
-                  //       );
-                  //     },
-                  //   );
-                  // }).toList(),
-                  ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const CompetitionPage();
-                      },
-                    ),
-                  );
-                },
-                child: const Text('Competitions'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const ClubesPage();
-                      },
-                    ),
-                  );
-                },
-                child: const Text('Clubes'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const JogosPage();
-                      },
-                    ),
-                  );
-                },
-                child: const Text(
-                  'Jogos',
+                options: CarouselOptions(
+                  height: 400,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: false,
+                  autoPlayInterval: const Duration(seconds: 1),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.3,
+                  scrollDirection: Axis.horizontal,
                 ),
+                items: imageSliders,
+              ),
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  SizedBox(
+                    width: (widthScreen / 3),
+                    height: 90,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'images/clube.png',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 45,
+                    left: 55,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return const CompetitionPage();
+                            },
+                          ),
+                        );
+                      },
+                      child: const Text('Competitions',
+                          style: TextStyle(fontSize: 25)),
+                    ),
+                  ),
+                ],
+              ),
+              Stack(
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'images/5.png',
+                        ),
+                      ),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const JogosPage();
+                            },
+                          ),
+                        );
+                      },
+                      child: const Text('Jogos'),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 200,
               ),
             ],
           ),

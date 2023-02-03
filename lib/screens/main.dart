@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trabalho2/screens/profile_page.dart';
-import 'package:trabalho2/screens/root_page.dart';
 
 import 'home_page.dart';
 
@@ -14,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.green),
-      home: const RootPage(),
+      home: const HomePage(),
     );
   }
 }
