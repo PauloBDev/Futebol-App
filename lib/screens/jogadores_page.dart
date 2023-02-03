@@ -56,6 +56,16 @@ Clube: ${e.nameClube}
 Contratação: ${e.date}''',
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: DateTime.now().difference(e.date).inDays > 180
+                          ? const Icon(
+                              Icons.dangerous,
+                              color: Colors.red,
+                              size: 50,
+                            )
+                          : null,
+                    ),
                   ],
                 ),
               ),

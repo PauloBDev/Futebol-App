@@ -19,7 +19,7 @@ class _JogadoresPageAllState extends State<JogadoresPageAll> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Equipa',
+          'Jogadores',
         ),
       ),
       body: Container(
@@ -48,6 +48,32 @@ class _JogadoresPageAllState extends State<JogadoresPageAll> {
               child: Card(
                 child: Row(
                   children: [
+//                     ListTile(
+//                       trailing: DateTime.now().difference(e.date).inDays < 200
+//                           ? const Icon(
+//                               Icons.dangerous,
+//                               color: Colors.red,
+//                             )
+//                           : null,
+//                       leading: Padding(
+//                         padding: const EdgeInsets.all(8.0),
+//                         child: Image.asset(
+//                           'images/profile_pic.png',
+//                           width: 100,
+//                           height: 100,
+//                         ),
+//                       ),
+//                       subtitle: Container(
+//                         margin: const EdgeInsets.all(5),
+//                         child: Text(
+//                           '''Nome: ${e.namejogador}
+// Idade: ${e.idade}
+// Clube: ${e.nameClube}
+// Contratação: ${e.date}''',
+//                         ),
+//                       ),
+//                     )
+                    //por direito é por este padding depois do chieldren em cima
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset(
@@ -64,6 +90,16 @@ Idade: ${e.idade}
 Clube: ${e.nameClube}
 Contratação: ${e.date}''',
                       ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: DateTime.now().difference(e.date).inDays > 10
+                          ? const Icon(
+                              Icons.dangerous,
+                              color: Colors.red,
+                              size: 50,
+                            )
+                          : null,
                     ),
                   ],
                 ),
