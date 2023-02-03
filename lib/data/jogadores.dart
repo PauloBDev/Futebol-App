@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:trabalho2/data/clubes.dart';
 
 class Jogador extends Clubes {

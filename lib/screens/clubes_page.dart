@@ -3,8 +3,6 @@ import 'package:trabalho2/add_pages/add_jogador_page.dart';
 import 'package:trabalho2/populating/clubes.dart';
 import 'package:trabalho2/screens/jogadores_page.dart';
 
-import '../add_pages/add_clubes_page.dart';
-
 class ClubesPage extends StatefulWidget {
   const ClubesPage({super.key});
 
@@ -35,44 +33,50 @@ class _ClubesPageState extends State<ClubesPage> {
         child: ListView(
           children: clubes.map((e) {
             final String nameClube = e.nameClube;
-            return Card(
-              child: Row(
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return JogadoresPage(nameClube);
-                              },
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                child: Row(
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return JogadoresPage(nameClube);
+                                },
+                              ),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Ink.image(
+                              image: const AssetImage(
+                                'images/profile_pic.png',
+                              ),
+                              width: imageSize,
+                              height: imageSize,
                             ),
-                          );
-                        },
-                        child: Ink.image(
-                          image: const AssetImage(
-                            'images/profile_pic.png',
                           ),
-                          width: imageSize,
-                          height: imageSize,
                         ),
-                      ),
-                      SizedBox(
-                        width: imageSize / 2,
-                      ),
-                      Text(
-                        e.nameClube,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 32,
+                        SizedBox(
+                          width: imageSize / 2,
                         ),
-                      )
-                    ],
-                  )
-                ],
+                        Text(
+                          e.nameClube,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 32,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             );
           }).toList(),

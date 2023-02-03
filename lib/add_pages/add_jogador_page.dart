@@ -27,9 +27,8 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
 
   @override
   Widget build(BuildContext context) {
-    double screenH = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(title: Text("Adicionar Jogador")),
+      appBar: AppBar(title: const Text("Adicionar Jogador")),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -39,7 +38,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
+        child: ListView(
           children: [
             const SizedBox(
               height: 3,
@@ -47,11 +46,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _controllers[0],
+                controller: _textController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: listaTexto[0],
+                  hintText: "Nome da Competição",
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -64,11 +63,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _controllers[1],
+                controller: _textController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: listaTexto[1],
+                  hintText: "Nome da Competição",
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -84,11 +83,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _controllers[2],
+                controller: _textController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: listaTexto[2],
+                  hintText: "Nome da Competição",
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -104,11 +103,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _controllers[3],
+                controller: _textController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: listaTexto[3],
+                  hintText: "Nome da Competição",
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -124,11 +123,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _controllers[4],
+                controller: _textController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: listaTexto[4],
+                  hintText: "Nome da Competição",
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -138,89 +137,6 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
-                controller: _controllers[5],
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: listaTexto[5],
-                  border: const OutlineInputBorder(),
-                  suffix: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
-                controller: _controllers[6],
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: listaTexto[6],
-                  border: const OutlineInputBorder(),
-                  suffix: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
-                controller: _controllers[7],
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: listaTexto[7],
-                  border: const OutlineInputBorder(),
-                  suffix: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
-                controller: _controllers[8],
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: listaTexto[8],
-                  border: const OutlineInputBorder(),
-                  suffix: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear)),
-                ),
-              ),
-            ),
-            MaterialButton(onPressed: () {
-              setState(() {
-                Jogador(
-                  nameClube: _controllers[0].text,
-                  namejogador: _controllers[2].text,
-                  escolaridade: _controllers[3].text,
-                  nameCompetition: _controllers[1].text,
-                  idade: int.parse(_controllers[4].text),
-                  peso: double.parse(_controllers[5].text),
-                  altura: double.parse(_controllers[6].text),
-                  passport: int.parse(_controllers[7].text),
-                  date: DateTime.parse(_controllers[8].text),
-                );
-              });
-            })
           ],
         ),
       ),

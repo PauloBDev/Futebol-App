@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:trabalho2/data/jogadores.dart';
 import '../add_pages/add_jogador_page.dart';
 import '../populating/jogadores.dart';
 
@@ -33,24 +29,30 @@ class _JogadoresPageAllState extends State<JogadoresPageAll> {
         ),
         child: ListView(
           children: jogadores.map((e) {
-            return Card(
-              child: Row(
-                children: [
-                  Image.asset(
-                    'images/profile_pic.png',
-                    width: 100,
-                    height: 100,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(5),
-                    child: Text(
-                      '''Nome: ${e.namejogador}
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'images/profile_pic.png',
+                        width: 100,
+                        height: 100,
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      child: Text(
+                        '''Nome: ${e.namejogador}
 Idade: ${e.idade}
 Clube: ${e.nameClube}
 Contratação: ${e.date}''',
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           }).toList(),
