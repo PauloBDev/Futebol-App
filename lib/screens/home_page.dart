@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:trabalho2/screens/competition_page.dart';
+import 'package:trabalho2/screens/jogadores_page.dart';
+import 'package:trabalho2/screens/jogadores_page_all.dart';
 import 'package:trabalho2/screens/jogos_page.dart';
 import 'package:trabalho2/screens/clubes_page.dart';
 import '../populating/corouselSlider.dart';
@@ -26,21 +28,16 @@ final List<Widget> imageSliders = carouselSlider
                   Radius.circular(5.0),
                 ),
                 child: Stack(
-                  children: <Widget>[
+                  children: [
                     Image.network(
                       e.imagem,
                     ),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Text(
-                        e.titulo,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    Text(
+                      e.titulo,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
@@ -82,7 +79,7 @@ class _HomePageState extends State<HomePage> {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                '2',
+                'images/campo.png',
               ),
               fit: BoxFit.cover,
             ),
@@ -148,67 +145,174 @@ class _HomePageState extends State<HomePage> {
                 ),
                 items: imageSliders,
               ),
-              Stack(
-                clipBehavior: Clip.none,
+              Row(
                 children: [
-                  SizedBox(
-                    width: (widthScreen / 3),
-                    height: 90,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        'images/clube.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 45,
-                    left: 55,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return const CompetitionPage();
-                            },
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      SizedBox(
+                        width: (widthScreen / 2) - 10,
+                        height: 90,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'images/Competitions.png',
+                            fit: BoxFit.cover,
                           ),
-                        );
-                      },
-                      child: const Text('Competitions',
-                          style: TextStyle(fontSize: 25)),
-                    ),
-                  ),
-                ],
-              ),
-              Stack(
-                children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'images/5.png',
                         ),
                       ),
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return const JogosPage();
-                            },
+                      Positioned(
+                        bottom: 35,
+                        left: widthScreen / 4,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const CompetitionPage();
+                                },
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Competitions',
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
-                        );
-                      },
-                      child: const Text('Jogos'),
-                    ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      SizedBox(
+                        width: (widthScreen / 2),
+                        height: 90,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'images/clube.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 35,
+                        left: widthScreen / 4,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const ClubesPage();
+                                },
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Clubes',
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
               const SizedBox(
-                height: 200,
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      SizedBox(
+                        width: (widthScreen / 2) - 10,
+                        height: 90,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'images/players.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 35,
+                        left: widthScreen / 4,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return JogadoresPageAll();
+                                },
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Joagdores',
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      SizedBox(
+                        width: (widthScreen / 2),
+                        height: 90,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'images/soccer-ball-goal.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 35,
+                        left: widthScreen / 4,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const JogosPage();
+                                },
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Jogos',
+                            style: TextStyle(
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),
