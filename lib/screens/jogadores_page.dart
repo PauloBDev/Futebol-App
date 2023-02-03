@@ -56,14 +56,6 @@ Clube: ${e.nameClube}
 Contratação: ${e.date}''',
                       ),
                     ),
-                    ListTile(
-                      trailing: DateTime.now().difference(e.date).inDays < 200
-                          ? const Icon(
-                              Icons.dangerous,
-                              color: Colors.red,
-                            )
-                          : null,
-                    ),
                   ],
                 ),
               ),
