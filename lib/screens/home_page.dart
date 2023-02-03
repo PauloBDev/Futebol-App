@@ -33,9 +33,6 @@ final List<Widget> imageSliders = carouselSlider
                     Image.asset(
                       e.imagem,
                     ),
-                    const SizedBox(
-                      height: 0,
-                    ),
                     Text(
                       e.titulo,
                       style: const TextStyle(
@@ -145,7 +142,7 @@ class _HomePageState extends State<HomePage> {
               ),
               CarouselSlider(
                 options: CarouselOptions(
-                  height: 300,
+                  height: 420,
                   aspectRatio: 16 / 9,
                   viewportFraction: 0.8,
                   initialPage: 0,
@@ -162,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                 items: imageSliders,
               ),
               const SizedBox(
-                height: 60,
+                height: 1,
               ),
               Row(
                 children: [
