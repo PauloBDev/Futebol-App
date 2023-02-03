@@ -195,7 +195,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Color.fromARGB(255, 0, 0, 0)),
                           ),
                         ),
                       ),
@@ -236,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Color.fromARGB(255, 4, 4, 4)),
                           ),
                         ),
                       ),
@@ -277,11 +277,11 @@ class _HomePageState extends State<HomePage> {
                             );
                           },
                           child: const Text(
-                            'Joagdores',
+                            'Jogadores',
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Color.fromARGB(255, 0, 0, 0)),
                           ),
                         ),
                       ),
@@ -322,7 +322,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 fontSize: 40,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Color.fromARGB(255, 0, 0, 0)),
                           ),
                         ),
                       ),
