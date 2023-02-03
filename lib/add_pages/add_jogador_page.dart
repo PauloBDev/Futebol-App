@@ -46,11 +46,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _textController,
+                controller: _controllers[0],
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: "Nome da Competição",
+                  hintText: listaTexto[0],
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -63,11 +63,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _textController,
+                controller: _controllers[1],
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: "Nome da Competição",
+                  hintText: listaTexto[1],
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -83,11 +83,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _textController,
+                controller: _controllers[2],
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: "Nome da Competição",
+                  hintText: listaTexto[2],
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -103,11 +103,11 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                controller: _textController,
+                controller: _controllers[3],
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: "Nome da Competição",
+                  hintText: listaTexto[3],
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -121,13 +121,28 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
               height: 5,
             ),
             Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: TextField(
+                    controller: _controllers[4],
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: listaTexto[4],
+                      border: const OutlineInputBorder(),
+                      suffix: IconButton(
+                          onPressed: () {
+                            _textController.clear();
+                          },
+                          icon: const Icon(Icons.clear)),
+                    ))),
+            Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
                 controller: _textController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  hintText: "Nome da Competição",
+                  hintText: "Peso",
                   border: const OutlineInputBorder(),
                   suffix: IconButton(
                       onPressed: () {
@@ -137,6 +152,134 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(
+                controller: _textController,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: "Altura",
+                  border: const OutlineInputBorder(),
+                  suffix: IconButton(
+                      onPressed: () {
+                        _textController.clear();
+                      },
+                      icon: const Icon(Icons.clear)),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(
+                controller: _textController,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: "Passport",
+                  border: const OutlineInputBorder(),
+                  suffix: IconButton(
+                      onPressed: () {
+                        _textController.clear();
+                      },
+                      icon: const Icon(Icons.clear)),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(
+                controller: _controllers[5],
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: listaTexto[5],
+                  border: const OutlineInputBorder(),
+                  suffix: IconButton(
+                      onPressed: () {
+                        _textController.clear();
+                      },
+                      icon: const Icon(Icons.clear)),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(
+                controller: _controllers[6],
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: listaTexto[6],
+                  border: const OutlineInputBorder(),
+                  suffix: IconButton(
+                      onPressed: () {
+                        _textController.clear();
+                      },
+                      icon: const Icon(Icons.clear)),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(
+                controller: _controllers[7],
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: listaTexto[7],
+                  border: const OutlineInputBorder(),
+                  suffix: IconButton(
+                      onPressed: () {
+                        _textController.clear();
+                      },
+                      icon: const Icon(Icons.clear)),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(
+                controller: _controllers[8],
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: listaTexto[8],
+                  border: const OutlineInputBorder(),
+                  suffix: IconButton(
+                      onPressed: () {
+                        _textController.clear();
+                      },
+                      icon: const Icon(Icons.clear)),
+                ),
+              ),
+            ),
+            MaterialButton(
+              onPressed: () {
+                setState(() {
+                  Jogador(
+                    nameClube: _controllers[0].text,
+                    namejogador: _controllers[2].text,
+                    escolaridade: _controllers[3].text,
+                    nameCompetition: _controllers[1].text,
+                    idade: int.parse(_controllers[4].text),
+                    peso: double.parse(_controllers[5].text),
+                    altura: double.parse(_controllers[6].text),
+                    passport: int.parse(_controllers[7].text),
+                    date: DateTime.parse(_controllers[8].text),
+                  );
+                });
+              },
+              color: Colors.lightGreen[900],
+              child: const Text(
+                "Adicionar",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+              ),
+            )
           ],
         ),
       ),
