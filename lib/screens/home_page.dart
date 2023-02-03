@@ -27,7 +27,7 @@ final List<Widget> imageSliders = carouselSlider
                 borderRadius: const BorderRadius.all(
                   Radius.circular(5.0),
                 ),
-                child: Stack(
+                child: Column(
                   children: [
                     Image.network(
                       e.imagem,
