@@ -12,6 +12,22 @@ class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
   final List<TextEditingController> _controllers =
       List.generate(2, (i) => TextEditingController());
 
+  String? get _errorText {
+    var lista = [];
+    lista.addAll(_controllers);
+    // at any time, we can get the text from _controller.value.text
+    if (lista.isEmpty) {
+      return 'Inserir Dados';
+    }
+    if (lista[0] == int || lista[0] == null) {
+      return 'Nome de Clube inválido';
+    }
+    if (lista[1] == int || lista[1] == null) {
+      return 'Nom de Competição inválido';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

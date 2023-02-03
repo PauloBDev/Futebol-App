@@ -10,6 +10,13 @@ class CompetitionAdd_Page extends StatefulWidget {
 
 class _CompetitionAdd_PageState extends State<CompetitionAdd_Page> {
   final _textController = TextEditingController();
+  String? get _errorText {
+    final text = _textController.value.text;
+    if (text.isEmpty || text == int) {
+      return 'Can\'t be empty';
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +56,7 @@ class _CompetitionAdd_PageState extends State<CompetitionAdd_Page> {
             ),
             MaterialButton(
               onPressed: () {
+                _errorText;
                 setState(() {
                   Competition(nameCompetition: _textController.text);
                 });
