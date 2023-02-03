@@ -175,8 +175,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        bottom: 35,
-                        left: widthScreen / 4,
+                        bottom: 20,
+                        right: 20,
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).push(
@@ -190,9 +190,9 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             'Competição',
                             style: TextStyle(
-                                fontSize: 25,
+                                fontSize: 60,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 0, 0, 0)),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -216,8 +216,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        bottom: 35,
-                        left: widthScreen / 4,
+                        bottom: 20,
+                        left: 50,
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).push(
@@ -231,9 +231,9 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             'Clubes',
                             style: TextStyle(
-                                fontSize: 25,
+                                fontSize: 60,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 4, 4, 4)),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -261,8 +261,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        bottom: 35,
-                        left: widthScreen / 4,
+                        bottom: 20,
+                        right: 20,
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).push(
@@ -276,9 +276,9 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             'Jogadores',
                             style: TextStyle(
-                                fontSize: 25,
+                                fontSize: 50,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 0, 0, 0)),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -302,8 +302,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        bottom: 35,
-                        left: widthScreen / 4,
+                        bottom: 20,
+                        left: 50,
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).push(
@@ -314,12 +314,12 @@ class _HomePageState extends State<HomePage> {
                               ),
                             );
                           },
-                          child: const Text(
+                          child: Text(
                             'Jogos',
                             style: TextStyle(
-                                fontSize: 40,
+                                fontSize: 60,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 0, 0, 0)),
+                                color: Colors.red[700]),
                           ),
                         ),
                       ),
