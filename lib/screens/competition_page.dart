@@ -32,44 +32,51 @@ class _CompetitionPageState extends State<CompetitionPage> {
         child: ListView(
           children: competitions.map((e) {
             final String nameCompetition = e.nameCompetition;
-            return Card(
-              child: Row(
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return Clubes_Competition_Page(nameCompetition);
-                              },
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                child: Row(
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return Clubes_Competition_Page(
+                                      nameCompetition);
+                                },
+                              ),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Ink.image(
+                              image: const AssetImage(
+                                'images/profile_pic.png',
+                              ),
+                              width: imageSize,
+                              height: imageSize,
                             ),
-                          );
-                        },
-                        child: Ink.image(
-                          image: const AssetImage(
-                            'images/profile_pic.png',
                           ),
-                          width: imageSize,
-                          height: imageSize,
                         ),
-                      ),
-                      SizedBox(
-                        width: imageSize / 2,
-                      ),
-                      Text(
-                        e.nameCompetition,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 20,
+                        SizedBox(
+                          width: imageSize / 2,
                         ),
-                      )
-                    ],
-                  )
-                ],
+                        Text(
+                          e.nameCompetition,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 20,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             );
           }).toList(),

@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                             );
                           },
                           child: const Text(
-                            'Competitions',
+                            'Competição',
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,

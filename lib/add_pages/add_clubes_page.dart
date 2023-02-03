@@ -14,7 +14,7 @@ class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
   Widget build(BuildContext context) {
     double screenH = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(title: Text("Adicionar Clube")),
+      appBar: AppBar(title: const Text("Adicionar Clube")),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -24,27 +24,60 @@ class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
+        child: ListView(
           children: [
-            SizedBox(
-              height: screenH / 3,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
-                controller: _textController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: "Nome da Competição",
-                  border: const OutlineInputBorder(),
-                  suffix: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear)),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: TextField(
+                    controller: _textController,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: "Nome do Clube",
+                      border: const OutlineInputBorder(),
+                      suffix: IconButton(
+                          onPressed: () {
+                            _textController.clear();
+                          },
+                          icon: const Icon(Icons.clear)),
+                    ),
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: TextField(
+                    controller: _textController,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: "Nome da Competição que pertence",
+                      border: const OutlineInputBorder(),
+                      suffix: IconButton(
+                          onPressed: () {
+                            _textController.clear();
+                          },
+                          icon: const Icon(Icons.clear)),
+                    ),
+                  ),
+                ),
+                MaterialButton(
+                  onPressed: () {},
+                  color: Colors.lightGreen[900],
+                  child: const Text(
+                    "Adicionar",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
             ),
           ],
         ),
