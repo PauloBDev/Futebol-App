@@ -3,8 +3,6 @@ import 'package:trabalho2/add_pages/add_jogador_page.dart';
 import 'package:trabalho2/populating/clubes.dart';
 import 'package:trabalho2/screens/jogadores_page.dart';
 
-import '../add_pages/add_clubes_page.dart';
-
 class ClubesPage extends StatefulWidget {
   const ClubesPage({super.key});
 

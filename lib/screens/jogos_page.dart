@@ -1,12 +1,6 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:trabalho2/populating/jogos.dart';
-import '../populating/clubes.dart';
-import 'clubes_competitions_page.dart';
-import 'clubes_page.dart';
-import 'jogadores_page.dart';
 
 class JogosPage extends StatefulWidget {
   const JogosPage({super.key});

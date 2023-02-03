@@ -12,7 +12,6 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
 
   @override
   Widget build(BuildContext context) {
-    double screenH = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(title: const Text("Adicionar Jogador")),
       body: Container(

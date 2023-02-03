@@ -1,8 +1,5 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import '../populating/clubes.dart';
-import 'clubes_page.dart';
 import 'jogadores_page.dart';
 
 class Clubes_Competition_Page extends StatefulWidget {
@@ -39,7 +36,6 @@ class _Clubes_Competition_PageState extends State<Clubes_Competition_Page> {
         ),
         child: ListView(
           children: clubesDeCompetition.map((e) {
-            final String nameCompetitionC = e.nameCompetitionC;
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(

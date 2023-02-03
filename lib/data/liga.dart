@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Liga {
   final DateTime ligaStart;
   final int durationMonths;

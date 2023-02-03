@@ -4,7 +4,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:trabalho2/populating/jogos.dart';
 import 'package:trabalho2/screens/competition_page.dart';
-import 'package:trabalho2/screens/jogadores_page.dart';
 import 'package:trabalho2/screens/jogadores_page_all.dart';
 import 'package:trabalho2/screens/jogos_page.dart';
 import 'package:trabalho2/screens/clubes_page.dart';
@@ -19,34 +18,32 @@ class HomePage extends StatefulWidget {
 
 final List<Widget> imageSliders = carouselSlider
     .map(
-      (e) => Container(
-        child: Stack(
-          children: [
-            Container(
-              margin: const EdgeInsets.all(5.0),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      e.imagem,
+      (e) => Stack(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(5.0),
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(5.0),
+              ),
+              child: Column(
+                children: [
+                  Image.asset(
+                    e.imagem,
+                  ),
+                  Text(
+                    e.titulo,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      e.titulo,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     )
     .toList();
@@ -271,7 +268,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
-                                  return JogadoresPageAll();
+                                  return const JogadoresPageAll();
                                 },
                               ),
                             );

@@ -12,7 +12,6 @@ class _ClubesAdd_PageState extends State<ClubesAdd_Page> {
 
   @override
   Widget build(BuildContext context) {
-    double screenH = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(title: const Text("Adicionar Clube")),
       body: Container(
