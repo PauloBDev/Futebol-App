@@ -145,6 +145,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 items: imageSliders,
               ),
+              const SizedBox(
+                height: 40,
+              ),
               Row(
                 children: [
                   Stack(
