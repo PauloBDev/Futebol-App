@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:intl/intl.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:trabalho2/populating/jogos.dart';
 import 'package:trabalho2/screens/competition_page.dart';
 import 'package:trabalho2/screens/jogadores_page.dart';
 import 'package:trabalho2/screens/jogadores_page_all.dart';
@@ -29,8 +30,11 @@ final List<Widget> imageSliders = carouselSlider
                 ),
                 child: Column(
                   children: [
-                    Image.network(
+                    Image.asset(
                       e.imagem,
+                    ),
+                    const SizedBox(
+                      height: 0,
                     ),
                     Text(
                       e.titulo,
@@ -51,12 +55,12 @@ final List<Widget> imageSliders = carouselSlider
     .toList();
 
 class _HomePageState extends State<HomePage> {
-  var formattedTime = DateFormat('HH:mm:ss').format(DateTime.now());
+  var formattedTime = DateFormat('HH:mm:ss');
   @override
   void initState() {
     Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        formattedTime = DateFormat('HH:mm:ss').format(DateTime.now());
+        formattedTime;
       });
     });
     super.initState();
@@ -64,8 +68,20 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final screen = MediaQuery.of(context).size.width;
-    const double imagesize = 100;
+    DateTime startDate = DateTime.now();
+
+    List jogostempos = [];
+    jogos.forEach((e) {
+      jogostempos.add(e.gameStarts);
+    });
+    jogostempos.sort((a, b) {
+      return a.compareTo(b);
+    });
+    DateTime endDate = jogostempos[0];
+    debugPrint("${jogostempos[0]}");
+    Duration dif = endDate.difference(startDate);
+    String hora =
+        "${dif.inHours}:${dif.inMinutes.remainder(60)}:${(dif.inSeconds.remainder(60))}";
     double widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
@@ -105,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                   Center(
                     heightFactor: 2,
                     child: Text(
-                      formattedTime,
+                      hora,
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -129,7 +145,7 @@ class _HomePageState extends State<HomePage> {
               ),
               CarouselSlider(
                 options: CarouselOptions(
-                  height: 400,
+                  height: 300,
                   aspectRatio: 16 / 9,
                   viewportFraction: 0.8,
                   initialPage: 0,
@@ -146,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                 items: imageSliders,
               ),
               const SizedBox(
-                height: 40,
+                height: 60,
               ),
               Row(
                 children: [

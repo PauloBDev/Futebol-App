@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:trabalho2/data/jogadores.dart';
+import 'package:trabalho2/add_pages/add_jogador_page.dart';
 import 'package:trabalho2/populating/clubes.dart';
-import 'package:trabalho2/populating/jogadores.dart';
 import 'package:trabalho2/screens/jogadores_page.dart';
-import 'jogadores_page.dart';
+
+import '../add_pages/add_clubes_page.dart';
 
 class ClubesPage extends StatefulWidget {
   const ClubesPage({super.key});
@@ -77,6 +77,17 @@ class _ClubesPageState extends State<ClubesPage> {
             );
           }).toList(),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return const JogadoresAdd_Page();
+            },
+          ));
+        },
+        backgroundColor: Colors.grey,
+        child: const Icon(Icons.add),
       ),
     );
   }

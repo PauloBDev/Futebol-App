@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:trabalho2/populating/competitions.dart';
 import 'package:trabalho2/screens/clubes_competitions_page.dart';
-import 'package:trabalho2/screens/clubes_page.dart';
-
-import '../populating/clubes.dart';
+import '../add_pages/add_competition_page.dart';
 
 class CompetitionPage extends StatefulWidget {
   const CompetitionPage({super.key});
@@ -78,6 +74,17 @@ class _CompetitionPageState extends State<CompetitionPage> {
             );
           }).toList(),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return const CompetitionAdd_Page();
+            },
+          ));
+        },
+        backgroundColor: Colors.grey,
+        child: const Icon(Icons.add),
       ),
     );
   }

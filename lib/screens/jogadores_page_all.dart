@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:trabalho2/data/jogadores.dart';
+import '../add_pages/add_jogador_page.dart';
 import '../populating/jogadores.dart';
 
 class JogadoresPageAll extends StatefulWidget {
@@ -54,6 +55,17 @@ Contratação: ${e.date}''',
             );
           }).toList(),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return const JogadoresAdd_Page();
+            },
+          ));
+        },
+        backgroundColor: Colors.grey,
+        child: const Icon(Icons.add),
       ),
     );
   }

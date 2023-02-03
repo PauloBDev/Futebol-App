@@ -9,7 +9,7 @@ final List<Jogador> jogadores = [
     peso: 82,
     altura: 182,
     passport: 1422535436,
-    date: DateTime.now(),
+    date: DateTime.utc(2023, 2, 2),
   ),
   Jogador(
     nameClube: 'B',
@@ -19,7 +19,7 @@ final List<Jogador> jogadores = [
     peso: 74,
     altura: 160,
     passport: 14225355436,
-    date: DateTime.now(),
+    date: DateTime.utc(2023, 2, 2),
   ),
   Jogador(
     nameClube: 'C',
@@ -29,6 +29,6 @@ final List<Jogador> jogadores = [
     peso: 60,
     altura: 150,
     passport: 1422535543,
-    date: DateTime.now(),
+    date: DateTime.utc(2023, 2, 2),
   ),
 ];
