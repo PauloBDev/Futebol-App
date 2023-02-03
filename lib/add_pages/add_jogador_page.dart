@@ -28,9 +28,21 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
     lista.addAll(_controllers);
     // at any time, we can get the text from _controller.value.text
     if (lista.isEmpty) {
-      return 'Can\'t be empty';
+      return 'Inserir Dados';
     }
-    if (lista[0]) {}
+    if (lista[2] == int || lista[2] == null) {
+      return 'Nome de jogador inválido';
+    }
+    if (lista[4] == null) {
+      return 'Inserir Idade';
+    }
+    if (lista[7] == String || lista[7] == null) {
+      return 'Passport inválido';
+    }
+    if (lista[8] != null || lista[8] != DateFormat('dd-MM-yyyy')) {
+      return 'Data de contratação inválida';
+    }
+
     return null;
   }
 
@@ -214,6 +226,7 @@ class _JogadoresAdd_PageState extends State<JogadoresAdd_Page> {
             ),
             MaterialButton(
               onPressed: () {
+                _errorText;
                 setState(() {
                   Jogador(
                     nameClube: _controllers[0].text,
