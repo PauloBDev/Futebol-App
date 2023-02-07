@@ -76,9 +76,7 @@ class _HomePageState extends State<HomePage> {
       return a.compareTo(b);
     });
     DateTime endDate = jogostempos[0];
-    debugPrint("${jogostempos[0]}");
     Duration dif = endDate.difference(startDate);
-    debugPrint("$dif");
     String hora =
         "${dif.inHours}:${dif.inMinutes.remainder(60)}:${(dif.inSeconds.remainder(60))}";
     double widthScreen = MediaQuery.of(context).size.width;
