@@ -2,12 +2,12 @@ import 'package:trabalho2/data/jogos.dart';
 
 final List<Jogos> jogos = [
   Jogos(
-    gameStarts: DateTime.utc(2023, 2, 7, 16, 28, 0),
+    gameStarts: DateTime.utc(2023, 2, 9, 15, 2, 0),
     homeTeam: 'A',
     outsiderTeam: 'B',
   ),
   Jogos(
-    gameStarts: DateTime.utc(2023, 2, 9, 14, 30, 0),
+    gameStarts: DateTime.utc(2023, 2, 9, 18, 30, 0),
     homeTeam: 'B',
     outsiderTeam: 'C',
   ),

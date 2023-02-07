@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../add_pages/add_jogador_page.dart';
 import '../populating/jogadores.dart';
 
@@ -33,6 +34,7 @@ class _JogadoresPageAllState extends State<JogadoresPageAll> {
         ),
         child: ListView(
           children: jogadores.map((e) {
+            var contratacao = DateFormat("EEE,M/d/y").format(e.date);
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
@@ -52,7 +54,7 @@ class _JogadoresPageAllState extends State<JogadoresPageAll> {
                         '''Nome: ${e.namejogador}
 Idade: ${e.idade}
 Clube: ${e.nameClube}
-Contratação: ${e.date}''',
+Contratação: $contratacao''',
                       ),
                     ),
                     Padding(
