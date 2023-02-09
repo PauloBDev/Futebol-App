@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../populating/jogadores.dart';
 
 class JogadoresPage extends StatefulWidget {
@@ -34,6 +35,7 @@ class _JogadoresPageState extends State<JogadoresPage> {
         ),
         child: ListView(
           children: jogadoresDeClube.map((e) {
+            var contratacao = DateFormat("EEE,M/d/y").format(e.date);
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
@@ -53,7 +55,7 @@ class _JogadoresPageState extends State<JogadoresPage> {
                         '''Nome: ${e.namejogador}
 Idade: ${e.idade}
 Clube: ${e.nameClube}
-Contratação: ${e.date}''',
+Contratação: $contratacao''',
                       ),
                     ),
                     Padding(

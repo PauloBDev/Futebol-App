@@ -65,14 +65,17 @@ class _HomePageState extends State<HomePage> {
     DateTime startDate = DateTime.now();
 
     List jogostempos = [];
+
     jogos.forEach((e) {
-      jogostempos.add(e.gameStarts);
+      Duration dif2 = e.gameStarts.difference(startDate);
+      if (dif2.inHours >= 0 && dif2.inMinutes >= 0 && dif2.inSeconds >= 0) {
+        jogostempos.add(e.gameStarts);
+      }
     });
     jogostempos.sort((a, b) {
       return a.compareTo(b);
     });
     DateTime endDate = jogostempos[0];
-    debugPrint("${jogostempos[0]}");
     Duration dif = endDate.difference(startDate);
     String hora =
         "${dif.inHours}:${dif.inMinutes.remainder(60)}:${(dif.inSeconds.remainder(60))}";
@@ -95,7 +98,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           child: Column(
-            children: <Widget>[
+            children: [
               Stack(
                 clipBehavior: Clip.none,
                 children: [
@@ -168,8 +171,8 @@ class _HomePageState extends State<HomePage> {
                         height: 90,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            'images/Competitions.png',
+                          child: Image.asset(
+                            'images/competitions.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -190,9 +193,9 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             'Competição',
                             style: TextStyle(
-                                fontSize: 60,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -209,7 +212,7 @@ class _HomePageState extends State<HomePage> {
                         height: 90,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
+                          child: Image.asset(
                             'images/clube.png',
                             fit: BoxFit.cover,
                           ),
@@ -231,9 +234,9 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             'Clubes',
                             style: TextStyle(
-                                fontSize: 60,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -254,7 +257,7 @@ class _HomePageState extends State<HomePage> {
                         height: 90,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
+                          child: Image.asset(
                             'images/players.png',
                             fit: BoxFit.cover,
                           ),
@@ -276,9 +279,9 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             'Jogadores',
                             style: TextStyle(
-                                fontSize: 50,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -295,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                         height: 90,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
+                          child: Image.asset(
                             'images/soccer-ball-goal.png',
                             fit: BoxFit.cover,
                           ),
@@ -317,7 +320,7 @@ class _HomePageState extends State<HomePage> {
                           child: const Text(
                             'Jogos',
                             style: TextStyle(
-                                fontSize: 60,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
@@ -327,6 +330,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 200,
+              )
             ],
           ),
         ),
