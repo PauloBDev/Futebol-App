@@ -18,7 +18,7 @@ class _JogosPageState extends State<JogosPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Jogos',
+          'Clubes',
         ),
       ),
       body: Container(
@@ -37,22 +37,19 @@ class _JogosPageState extends State<JogosPage> {
                 width: 100,
                 height: 100,
                 child: Card(
-                  child: Stack(
+                  child: Row(
                     children: [
-                      Positioned(
-                        bottom: 1,
-                        child: Text(
-                          data,
-                          style: const TextStyle(
-                            fontSize: 25,
-                          ),
-                        ),
-                      ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
+                          Text(
+                            data,
+                            style: const TextStyle(
+                              fontSize: 32,
+                            ),
+                          ),
                           const SizedBox(
-                            width: 50,
+                            width: 150,
                           ),
                           Text(
                             e.homeTeam,
