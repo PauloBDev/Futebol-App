@@ -31,16 +31,6 @@ class _JogadoresPageAllState extends State<JogadoresPageAll> {
             fit: BoxFit.cover,
           ),
         ),
-        // child: ListView.builder(
-        //     itemCount: jogadores.length,
-        //     itemBuilder: (BuildContext context, int index) {
-        //       return jogadores.map((e){Padding(
-        //         padding: const EdgeInsets.all(8.0),
-        //         child: Container(
-        //           child: ListTile(trailing: DateTime.now().difference(jogadores.date).inDays>200:const Icon(Icons.warning_sharp,color: Colors.red,),),
-        //         ),
-        //       );})
-        //     }),
         child: ListView(
           children: jogadores.map((e) {
             return Padding(
@@ -48,32 +38,6 @@ class _JogadoresPageAllState extends State<JogadoresPageAll> {
               child: Card(
                 child: Row(
                   children: [
-//                     ListTile(
-//                       trailing: DateTime.now().difference(e.date).inDays < 200
-//                           ? const Icon(
-//                               Icons.dangerous,
-//                               color: Colors.red,
-//                             )
-//                           : null,
-//                       leading: Padding(
-//                         padding: const EdgeInsets.all(8.0),
-//                         child: Image.asset(
-//                           'images/profile_pic.png',
-//                           width: 100,
-//                           height: 100,
-//                         ),
-//                       ),
-//                       subtitle: Container(
-//                         margin: const EdgeInsets.all(5),
-//                         child: Text(
-//                           '''Nome: ${e.namejogador}
-// Idade: ${e.idade}
-// Clube: ${e.nameClube}
-// Contratação: ${e.date}''',
-//                         ),
-//                       ),
-//                     )
-                    //por direito é por este padding depois do chieldren em cima
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset(
@@ -93,7 +57,7 @@ Contratação: ${e.date}''',
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: DateTime.now().difference(e.date).inDays > 10
+                      child: DateTime.now().difference(e.date).inDays > 180
                           ? const Icon(
                               Icons.dangerous,
                               color: Colors.red,
