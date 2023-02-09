@@ -9,8 +9,6 @@ class Jogador extends Clubes {
   final double? altura;
   final int passport;
   final DateTime date;
-  final bool dopping;
-  final DateTime? doppingdate;
 
   Jogador({
     nameClube,
@@ -22,8 +20,6 @@ class Jogador extends Clubes {
     this.altura,
     required this.passport,
     required this.date,
-    this.dopping = true,
-    this.doppingdate,
   }) : super(nameClube: nameClube);
 
   @override

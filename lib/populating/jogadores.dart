@@ -4,7 +4,6 @@ final List<Jogador> jogadores = [
   Jogador(
     nameClube: 'A',
     namejogador: 'a',
-    nameCompetition: 'Primeira Liga',
     escolaridade: '12ºAno',
     idade: 20,
     peso: 82,
@@ -41,16 +40,5 @@ final List<Jogador> jogadores = [
     altura: 190,
     passport: 1422535918,
     date: DateTime.utc(2023, 1, 2),
-  ),
-  Jogador(
-    nameClube: 'A',
-    namejogador: 'e',
-    escolaridade: '12ºAno',
-    idade: 21,
-    peso: 88,
-    altura: 180,
-    passport: 1425675918,
-    date: DateTime.utc(2023, 1, 2),
-    dopping: false,
   ),
 ];
